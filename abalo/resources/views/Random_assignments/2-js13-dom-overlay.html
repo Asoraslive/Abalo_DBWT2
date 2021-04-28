@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js13</title>
+</head>
+<body>
+
+<button onclick="blendeMich()">Blende EIN/AUS!</button>
+
+<div id="toggleBox">
+</div>
+
+
+</body>
+<script>
+    'use strict';
+
+    function blendeMich(){
+        let tgBox = document.getElementById('toggleBox');
+        if (tgBox.hasAttribute('style'))
+            tgBox.removeAttribute('style');
+        else
+        tgBox.setAttribute('style',"position: absolute;bottom: 0px;height: 100px;width: 500px;background-color: red")
+
+    }
+</script>
+</html>

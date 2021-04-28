@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js14</title>
+</head>
+<body>
+
+
+<button id="cookieDelete" onclick="deleteCookie()">Delete Cookie</button>
+
+
+</body>
+<script>
+    'use strict';
+    function deleteCookie(){
+        document.cookie = "counter="+0;
+        console.log(document.cookie);
+        console.log("Deleted");
+    }
+    addEventListener('load',function (){
+        if (getCookie('counter') == null) {
+            document.cookie = "counter=" + 0;
+            console.log("set cookie");
+            console.log(getCookie('counter'));
+        }
+        else
+        {
+            let count = parseInt(getCookie('counter')) +1;
+            console.log(count);
+            document.cookie = 'counter='+count;
+            console.log(document.cookie);
+        }
+
+    })
+
+    function getCookie(name){
+        let v= document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)')
+        console.log(v);
+        return v? v[2]:null;
+    }
+</script>
+</html>

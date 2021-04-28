@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js14</title>
+</head>
+<body>
+
+
+
+
+</body>
+<script>
+    'use strict';
+    //Class User (First,LastName) Getter + setter
+    class User {
+        constructor(firstName,lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
+        setFirst(name){this.firstName= name;}
+        setLast(name){this.lastName=name;}
+        getFirst(){return this.firstName;}
+        getLast(){return this.lastName;}
+    }
+    //abgeleitet Buyer (User , Lastbuy)
+    class Buyer extends User{
+        constructor(first,last,lastBuy) {
+            super(first,last );
+            this.lastBuy = lastBuy;
+        }
+        setLastBuy(newLastBuy){this.lastBuy = newLastBuy;}
+        getLastBuy(){return this.lastBuy;}
+    }
+</script>
+</html>

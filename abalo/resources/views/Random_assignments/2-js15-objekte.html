@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js14</title>
+</head>
+<body>
+
+
+
+
+</body>
+<script>
+    'use strict';
+    //Car (name,typ)
+    //JSON
+    const Jcar = {
+        name: "",
+        type:"",
+    }
+    const test = Object.create(Jcar);
+    test.name = "T5";
+    test.type = "VolksWagen"
+    writeToConsole(test);
+    console.log(test);
+    function writeToConsole(obj){
+        console.log("Name : " +obj.name+"; Typ : " + obj.type);
+    }
+    //Function
+
+    //Class
+    class CarControl {
+        constructor(name,type) {
+            this.name = name;
+            this.type = type;
+        }
+
+        setCarName(name){this.name = name;}
+        setCarType(type){this.type = type;}
+        getCarName(){return this.name;}
+        getCarType(){return this.type;}
+
+        writeToConsole(){console.log("Name : " +this.name+"; Typ : " + this.type);}
+
+    }
+    let ClassTest = new CarControl('Honda','Cabrio');
+    ClassTest.writeToConsole();
+    console.log(ClassTest);
+</script>
+</html>

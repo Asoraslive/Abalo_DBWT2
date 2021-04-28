@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js12</title>
+</head>
+<body>
+
+<h2>Form</h2>
+    <input type="text" id="textbox">
+    <select name="drop" id="drop">
+        <option value="add">Add</option>
+        <option value="remove">Remove</option>
+    </select>
+    <button onclick="addRow()">Send</button>
+
+
+<h2>Table</h2>
+<table id="myTable">
+</table>
+</body>
+<script>
+    'use strict';
+
+    function addRow(){
+        let table = document.getElementById('myTable');
+        let select = document.getElementById('drop');
+        let selectValue = select.options[select.selectedIndex].value;
+        let text = document.getElementById('textbox').value;
+        console.log("addRow Started");
+        if (selectValue === "add"){
+            if (!text)
+                alert("To add a Text you need a Text :)")
+            console.log("getting added");
+            console.log("Text : " +text);
+            let row = table.insertRow(0);
+            let cell = row.insertCell(0);
+            cell.innerHTML = text;
+        }
+        else if (selectValue === "remove"){
+            console.log("Starting remove...")
+            let tr = document.getElementsByTagName('tr');
+
+            for (let i = 0 ; i < tr.length;i++)
+            {
+                if (tr[i].innerText === text)
+                {
+                    table.deleteRow(i);
+                    console.log("Removed Row"+i);
+                    return;
+                }
+            }
+            alert("Could not find the matching Row!");
+        }
+    }
+</script>
+</html>

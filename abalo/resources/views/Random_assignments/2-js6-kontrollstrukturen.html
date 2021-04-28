@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js6</title>
+
+</head>
+<body>
+
+</body>
+<script>
+    'use strict';
+    let temp = (Math.random() *10) +1 ;
+    console.log("Zahl = "+ temp);
+    console.log("Hier if");
+    if (temp > 5)
+        console.log("Größer 5");
+    else  if (temp < 5)
+        console.log("Kleiner 5");
+    else
+        console.log("= 5")
+
+    console.log("Hier Switch");
+    switch (temp) {
+        case (temp > 5):
+            console.log("Größer 5");
+            break;
+        case(temp < 5):
+            console.log("Kleiner 5");
+            break;
+        default:
+            console.log("= 5");
+            break;
+    }
+
+</script>
+</html>

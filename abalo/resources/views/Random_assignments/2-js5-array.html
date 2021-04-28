@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js5</title>
+
+</head>
+<body>
+
+</body>
+<script>
+    'use strict';
+    let js5 = ["erstes","zweites",3,4];
+    let iterator= 0;
+    while (iterator < 4){
+        console.log(js5[iterator]);
+        iterator++;
+    }
+    console.log("neuer abschnitt................");
+    for(let i = 0;i<4;i++){
+        console.log(js5[i]);
+    }
+    console.log("neuer abschnitt................");
+    js5.forEach(daten => console.log(daten));
+
+
+    console.log("Adden................");
+    js5.unshift(10,"drittes");
+    jsToConsole(js5);
+    console.log("neuer abschnitt................");
+    js5.pop();
+    jsToConsole(js5);
+    console.log("neuer abschnitt................");
+    js5[1]= "neun";
+    jsToConsole(js5);
+
+
+    console.log("Rest Funktionen................");
+    console.log("Array Länge= " + js5.length);
+    //sort
+    console.log("Sortiertes Array =" + js5.sort());
+    //find
+    console.log("Find Zahl größer 5 = " + js5.find(number => number > 5));
+    //filter
+    console.log("Filter Länger 2 Zeichen = " + js5.filter(wort => wort.length > 2));
+    //map
+    console.log("Mappe JS5 Array (adde abc)= " + js5.map(element => element + "abc"));
+    //slice
+    console.log("Slice 1-4 = " + js5.slice(1,4));
+
+
+    function jsToConsole(array){
+        array.forEach(daten => console.log(daten));
+    }
+</script>
+</html>

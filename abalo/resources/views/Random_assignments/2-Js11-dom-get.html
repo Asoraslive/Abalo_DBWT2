@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js11</title>
+</head>
+<body>
+
+<h1 id="headline" class="meineheadline" name="erster">Ich bin eine   <bold>Überschrift</bold></h1>
+<h1 class="meineheadline" name="zweiter">Ich auch</h1>
+
+</body>
+<script>
+    'use strict';
+    console.log('ID(HTML): ' + document.getElementById('headline').innerHTML);
+    console.log('ID(TEXT): ' + document.getElementById('headline').innerText);
+    console.log('Class: ' + document.getElementsByClassName('meineheadline')[0].innerHTML+" ; "+document.getElementsByClassName('meineheadline')[1].innerHTML);
+    console.log('Tag: ' + document.getElementsByTagName('h1')[0].innerText + " ; "+document.getElementsByTagName('h1')[1].innerText);
+    console.log('Name: ' + document.getElementsByName('erster')[0].innerText+ " ; "+document.getElementsByName('zweiter')[0].innerText);
+
+</script>
+</html>

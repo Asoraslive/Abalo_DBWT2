@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js14</title>
+</head>
+<body>
+
+<div id="changer" style="background-color: lightgray;width: 100vw;height: 100vh"></div>
+
+
+</body>
+<script>
+    'use strict';
+
+        let getElement = document.getElementById('changer');
+
+        setInterval(function () {
+            if (getElement.style.backgroundColor === "lightgray") {
+                getElement.style.backgroundColor = "red";
+                console.log("Changed Red");
+            } else if (getElement.style.backgroundColor === "red") {
+                getElement.style.backgroundColor = "lightgray";
+                console.log("Changed Lightgray");
+            }
+        },3000);
+
+</script>
+</html>
