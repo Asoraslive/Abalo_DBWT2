@@ -1,0 +1,20 @@
+2019(Desktopnutzer):
+			67,33% Google Chrome
+			9,13% Firefox
+			7,49% Internet Explorer
+			5,56% Microsoft Edge
+			3,79% Safari
+
+März.2021(Mobile Endgeräte): 
+			63,04% Google Chrome
+			24,85% Safari
+			6,04% Samsung Internet
+			2,43% UC Browser
+			1,84% Opera
+
+Für Abalo(ES6):
+		Safari bietet beste Kompabilität auf neuen Versionen (mit tail call optimization)
+		Edge Unterstütz mind. teilweise ES6 auf jeder Version
+		Chrome/Firefox auf neuen Versionen jedoch ohne tail call optimization
+		
+		tail call optimization: Möglichkeit für eine Funktion immer einen neuen Stack Frame zu allokieren (rekursive Funktionen)

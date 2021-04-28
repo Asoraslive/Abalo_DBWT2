@@ -1,0 +1,17 @@
+Vergleich C++ und Javascript
+
+Gemeinsamkeiten:
+	- Funktionen
+	- Kontrollstrukturen
+	- globale Variablen
+	- Objektorientiert
+	- Bibliothekeneinbindung 
+	- 
+
+Unterschiede:
+	- Einsatz
+	- Performance (C++ minimal besser)
+	- JS ist eine Skriptsprache
+	- JS Variableninitialisierung ganz oben im Quelltext
+	- Keine Kompilierung bei Skriptsprachen (keine binärdatei aus Quelltext)
+	- IDE

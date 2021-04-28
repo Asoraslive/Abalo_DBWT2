@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kontrollstrukturen</title>
+</head>
+<body>
+<script>
+    "use strict";
+    let x;
+    if (x === 'undefined')
+        console.log("X ist undefiniert");
+    else
+        console.log("X ist definiert");
+
+    x = 2;
+    switch(x){
+        case 1:
+            console.log("X ist 1");
+            break;
+        case 2:
+            console.log("X ist 2");
+            break;
+        default:
+            console.log("X ist weder 1 noch 2");
+            break;
+    }
+    while(x >= 0){
+        x--;
+    }
+    console.log(x);
+    do{
+        x++;
+    }while(x <= 2)
+    console.log(x);
+</script>
+</body>
+</html>

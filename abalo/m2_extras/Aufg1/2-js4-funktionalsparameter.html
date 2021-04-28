@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>F-Parameter</title>
+</head>
+<body>
+<script>
+    "use strict";
+    function mult(x=4,y=2){
+        return x*y;
+    }
+    function concatt(x,mult){
+        return mult().concat("mit dem String:",x);
+    }
+    console.log(concatt("Hi", mult()));
+
+</script>
+</body>
+</html>

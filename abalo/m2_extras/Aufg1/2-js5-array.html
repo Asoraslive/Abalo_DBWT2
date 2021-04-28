@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+</head>
+<body>
+<script>
+    "use strict";
+    //a)
+    let arr = ["erstes", "zweites", 3, 4];
+    for(let i = 0; i < arr.length; ++i) {
+        console.log( i + ' => ' + arr[i]);
+    }
+    arr.forEach(function(value, index) {
+        console.log(index + ' => ' + value);
+    });
+    let i = 0;
+    for(const el of arr) {
+        console.log(i++, ' => ', el);
+    }
+
+    //b)
+    let arr1 = ["erstes", "zweites", 3, 4];
+    arr1.push("eins");
+    for(let i = 0; i < arr1.length; ++i) {
+        console.log( i + ' => ' + arr1[i]);
+    }
+    arr1.push("zwei");
+    for(let i = 0; i < arr1.length; ++i) {
+        console.log( i + ' => ' + arr1[i]);
+    }
+    arr1.pop();
+    for(let i = 0; i < arr1.length; ++i) {
+        console1.log( i + ' => ' + arr1[i]);
+    }
+    arr1[1] = "nichtzweites";
+    for(let i = 0; i < arr1.length; ++i) {
+        console.log( i + ' => ' + arr1[i]);
+    }
+
+    //c)
+    let arr2 = ["erstes", "zweites", 3, 4];
+    console.log(arr2.length);
+    console.log(arr2.sort());
+    console.log(arr2.find(element => element < 10));
+    console.log(arr2.filter(element => element !== 'undefined'))
+    console.log(arr2.map(element => element + 1));
+    console.log(arr2.slice(0,2));
+</script>
+</body>
+</html>

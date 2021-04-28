@@ -1,0 +1,9 @@
+IDE: PHPStorm
+
+Features:
+
+1. Git Integration
+
+2. Möglichkeit Plugins zu installieren (Code With Me)
+
+3. Viele Hilfreiche Shortcuts (Möglichkeit eigene zu setzen)
