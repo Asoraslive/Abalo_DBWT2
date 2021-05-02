@@ -36,3 +36,9 @@ Route::post('/articles',[ArticleTableController::class,'store'])->name('articles
 
 Route::get('/categories',[AbArticlecategoryController::class,'index'])->name('categories.index');
 Route::get('/categories/',[AbArticlecategoryController::class,'show'])->name('categories.show');
+
+Route::get('/newarticle',function (){
+   return view('Random_assignments/newarticle');
+});
+Route::post('/newarticle',[ArticleTableController::class,'store'])->name('articles.store');
+

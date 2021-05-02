@@ -22,7 +22,7 @@
 <nav class="navbar navbar-light bg-light justify-content-around">
     @include('Templates/jsnav')
         <img  src="{{asset('img/abalo_logo.png')}}" alt="" width="auto" height="200" >
-        <div>Logged in as ...</div>
+        <a href="/newarticle">Neuen Artikel erstellen!</a>
 </nav>
 
 @yield('content')

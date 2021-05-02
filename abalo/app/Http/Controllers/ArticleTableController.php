@@ -21,13 +21,13 @@ class ArticleTableController extends Controller
     }
 
     public function store(Request $request){
-        $creatorId = ab_user::query()->where('ab_name',$request->articleSeller)->pluck('id')->first();
+        $creatorId = ab_user::query()->where('ab_name',$request->articleSeller)->firstOrFail();
         $article = new ab_article;
         $article->ab_name = $request->articleName;
         $article->ab_price = $request->articlePrice;
         $article->ab_description = $request->articleDescription;
-        $article->ab_creator_id = $creatorId;
+        $article->ab_creator_id = $creatorId->id;
         $article->save();
-        return view('Random_assignments/articletable_search',['articles'=> ab_article::all()]);
+        return redirect()->to('/articles');
     }
 }
