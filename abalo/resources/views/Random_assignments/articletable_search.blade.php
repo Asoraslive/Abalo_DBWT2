@@ -87,9 +87,9 @@
             let warenkorbItems = warenkorb.childNodes;
             let exists=false ;
             warenkorbItems.forEach(items =>{
-                console.log(warenkorbItems.length);
-                console.log(items.id);
-                console.log('shoppingKart'+itemId);
+                // console.log(warenkorbItems.length);
+                // console.log(items.id);
+                // console.log('shoppingKart'+itemId);
 
                 if (items.id === 'shoppingKart'+itemId){
 
