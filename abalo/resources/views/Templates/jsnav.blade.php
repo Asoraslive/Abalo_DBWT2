@@ -25,6 +25,58 @@
 
     //build menu
 
+    var NavFactory = (function(){
+        function NavClass() {
+            this.ul = document.createElement('ul');
+            this.ul.classList.add('nav');
+            this.ul.classList.add('flex-column');
+
+            document.getElementById('jsMenu').appendChild(this.ul);
+
+            this.addNode = function (name, ref){
+                let li = document.createElement('li');
+                let a = document.createElement('a');
+                li.appendChild(a);
+                a.classList.add('nav-link');
+                a.id += name;
+                a.href += ref;
+                a.innerHTML += name;
+                this.ul.appendChild(li);
+            }
+            this.addSubNode = function (name, ref, parent){
+                let a = document.getElementById(parent).childNodes[0];
+                let ull = document.createElement('ul');
+                a.after(ull);
+                let lii = document.createElement('li');
+                ull.appendChild(lii);
+                lii.classList.add('nav-item');
+                let aa = document.createElement('a');
+                lii.appendChild(aa);
+                aa.href += ref;
+                aa.innerHTML += name;
+            }
+        }
+        var instance;
+        return {
+            getInstance: function(){
+                if (instance == null) {
+                    instance = new NavClass();
+                    instance.constructor = null; // Um Konstruktor nicht mehr nutzen zu können
+                }
+                return instance;
+            }
+        };
+    })();
+
+    let Nav = NavFactory.getInstance();
+    for(let i = 0; i < menu['mainPoints'].length; ++i){
+        Nav.addNode(menu['mainPoints'][i]['name'], menu['mainPoints'][i]['ref']);
+    }
+    for(let i = 0; i < menu['subs'].length; ++i){
+        Nav.addSubNode(menu['subs'][i]['name'], menu['subs'][i]['ref'], menu['subs'][i]['subFrom']);
+    }
+
+    /*
     //ul
     let ul = document.createElement('ul');
 
@@ -63,5 +115,5 @@
 
             })
         }
-    })
+    }) */
 </script>

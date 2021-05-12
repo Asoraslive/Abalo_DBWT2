@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Willkommen</title>
+</head>
+<body>
+<script type="text/javascript">
+    "use strict";
+
+    let text = document.createElement('h1');
+    let body = document.getElementsByTagName('body');
+    body[0].appendChild(text);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "../public/static/message.json");
+    xhr.onreadystatechange = function (){
+        if(xhr.readyState === 4){
+            text.innerText = JSON.parse(xhr.responseText)['message'];
+        }
+    }
+    xhr.send();
+</script>
+</body>
+</html>

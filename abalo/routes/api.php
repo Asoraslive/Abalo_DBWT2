@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ShoppingcartController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::resource('articles', ArticleController::class);
+Route::resource('shoppingcart', ShoppingcartController::class);
+
+Route::delete('/shoppingcart/{shoppingcartid}/article/{articleId}', [ShoppingcartController::class, 'destroy']);

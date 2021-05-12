@@ -3,8 +3,8 @@
 @section('title','New Article')
 
 @section('content')
-    <form id="articleForm" method="post">
-        @csrf
+    <form id="articleForm" method="post" action="/newarticle">
+
         <div id="formBody" style="width: 90vw;margin: auto;"></div>
     </form>
 @endsection
@@ -67,7 +67,7 @@
             let sellerLabel = document.createElement('label');
             sellerLabel.className = 'form-check-label';
             sellerLabel.setAttribute('for','articleName');
-            sellerLabel.innerHTML = 'Artikel Verkufer:';
+            sellerLabel.innerHTML = 'Artikel Verkäufer:';
 
 
             //submitBtn
@@ -76,7 +76,7 @@
             submitBtn.innerText = 'Speichern';
             submitBtn.classList.add('btn');
             submitBtn.classList.add('btn-primary');
-            submitBtn.setAttribute('onclick','saveArticle()');
+            //submitBtn.setAttribute('onclick','saveArticle()');
 
 
 
@@ -90,17 +90,58 @@
             form.appendChild(description);
             form.appendChild(sellerLabel);
             form.appendChild(seller);
+            form.appendChild(document.createElement('br'));
             form.appendChild(submitBtn);
 
         })
 
+        window.onload = function (){
+            document.getElementById('articleSubmitBtn')
+                    .addEventListener('click', event => {
+                       let formname = document.getElementById('articleName').value;
+                       let formprice = document.getElementById('articlePrice').value;
+                       let formdesc = document.getElementById('articleDescription').value;
+                       let formseller = document.getElementById('articleSeller').value;
+
+                       event.preventDefault();
+                       sendData(formname, formprice, formdesc, formseller);
+                       return false;
+                    });
+        }
+        function sendData(name, price, desc, seller){
+            if(validation()) {
+                let xhr = new XMLHttpRequest();
+                xhr.open('POST', '/newarticle');
+                xhr.setRequestHeader("X-CSRF-TOKEN",
+                    document.getElementById("csrf-token").getAttribute('content')
+                );
+
+                let formData = new FormData();
+                formData.append("articleName", name);
+                formData.append("articlePrice", price);
+                formData.append("articleDescription", desc);
+                formData.append("articleSeller", seller);
+                xhr.send(formData);
+
+                document.getElementById('articleName').value = "";
+                document.getElementById('articlePrice').value = "";
+                document.getElementById('articleDescription').value = "";
+                document.getElementById('articleSeller').value = "";
+
+                let p = document.createElement('p');
+                p.innerHTML = "Produkt wurde hinzugefügt!";
+                document.getElementById('formBody').appendChild(p);
+            }
+        }
+
         //submit
-        function saveArticle(){
+        /*function saveArticle(){
             if (validation())
             {
                 document.getElementById('articleForm').submit();
             }
-        }
+        }*/
+
 
         //form validation
         function validation(){
@@ -127,6 +168,7 @@
             else
                 return true;
         }
+
 
 
     </script>

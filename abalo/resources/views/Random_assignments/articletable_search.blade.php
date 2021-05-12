@@ -45,6 +45,24 @@
     </div>
     <div class="collapse" id="warenkorbListe" style="width: auto;margin-top: 10px">
         <table class="table" id="warenkorbTabelle" style="margin:20px 5vw 20px 5vw;width: 90vw">
+            <tbody id="test">
+                <?php
+                $items = \App\Models\AbShoppingcartItem::all();
+
+                foreach ($items as $item){
+                    $article = \App\Models\ab_article::query()->where('id', $item->ab_article_id)->first();
+
+                    echo '<tr id="shoppingKart'. $article["id"]. '">';
+                    echo '<th scope="row">'. $article["id"] . '</th>';
+                    echo '<td>'. $article["ab_name"] . '</td>';
+                    echo '<td>'. $article["ab_price"] . '€</td>';
+                    echo '<td>'. $article["ab_description"] . '</td>';
+                    echo '<td>'. \App\Models\ab_user::query()->where('id', $article["ab_creator_id"])->pluck('ab_name')[0] . '</td>';
+                    echo '<td> <button class="btn" type="button" onclick="deleteFromCart('. $article["id"] .')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path><path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"></path></svg></button> </td>';
+                    echo '</tr>';
+                }
+                ?>
+            </tbody>
         </table>
     </div>
 
@@ -83,7 +101,7 @@
         //checkfunction
         function checkIfShoppingItemExists(itemId){
             console.log("getting checked")
-            let warenkorb = document.getElementById('warenkorbTabelle');
+            let warenkorb = document.getElementById('test');
             let warenkorbItems = warenkorb.childNodes;
             let exists=false ;
             warenkorbItems.forEach(items =>{
@@ -103,8 +121,21 @@
         //add function
         function addToBuy(itemId){
 
+            data = {articleid: itemId};
+            const userAction = async () => {
+                const response = await fetch('http://localhost:80/api/shoppingcart', {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    }
+                });
+                const myJson = await response.json();
+            }
+            userAction();
             //get warenkorb element
-            let warenkorb = document.getElementById('warenkorbTabelle');
+            let warenkorb =  document.getElementById('test');
             //get element to add
             let addItem = document.getElementById('item'+itemId);
             //check if to addItem exists
@@ -121,7 +152,19 @@
 
         //delete from Cart
         function deleteFromCart(deleteId) {
-            let shopTable = document.getElementById('warenkorbTabelle');
+            const userAction = async () => {
+                const response = await fetch('http://localhost:80/api/shoppingcart/'+ 1 + '/article/' + deleteId, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    }
+                });
+                const myJson = await response.json();
+            }
+            userAction();
+            console.log("test");
+            let shopTable = document.getElementById('test');
             let deleteItem = document.getElementById('shoppingKart' + deleteId);
             for (let i = 0; i < shopTable.childNodes.length; i++){
                 if (shopTable.childNodes[i] === deleteItem) {

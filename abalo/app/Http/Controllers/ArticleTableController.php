@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ab_article;
 use App\Models\ab_user;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ArticleTableController extends Controller
 {
@@ -21,13 +22,14 @@ class ArticleTableController extends Controller
     }
 
     public function store(Request $request){
-        $creatorId = ab_user::query()->where('ab_name',$request->articleSeller)->firstOrFail();
+        //$creatorId = ab_user::query()->where('ab_name',$request->articleSeller)->firstOrFail();
         $article = new ab_article;
+        $article->id = (int)DB::table('ab_articles')->max('id') + 1;
         $article->ab_name = $request->articleName;
         $article->ab_price = $request->articlePrice;
         $article->ab_description = $request->articleDescription;
-        $article->ab_creator_id = $creatorId->id;
+        $article->ab_creator_id = DB::table('ab_users')->where('ab_name', 'ilike', $request->articleSeller)->first('id') ?? 1; //$creatorId->id;
         $article->save();
-        return redirect()->to('/articles');
+        //return redirect()->to('/articles');
     }
 }
