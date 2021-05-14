@@ -1,0 +1,24 @@
+Array.protoype.flat(depth)
+Läuft auf ...
+Core: Ja
+V8: Ja
+SpiderMonkey: Ja
+
+Let a=() => {…}; a.toString();
+Läuft auf ...
+Core: Ja
+V8: Ja
+SpiderMonkey: Ja
+
+Object.fromEntries()
+Läuft auf ...
+Core: Ja
+V8: Ja
+SpiderMonkey: Ja
+
+
+Verwenden Sie diese Sprachkonstrukte ab jetzt in der Implementierung?
+Begründen Sie Ihre Entscheidung. Welche Quellen haben Sie verwendet?
+
+Antwort: In Zukunft können wir uns vorstellen diese Sprachkonstrukte zu verwenden, da diese unseren Code verkürzen und dieser dadurch übersichtlicher wird.
+Als Quellen haben wir in der Vorlesungen vorgestellte caniuse.com Website benutzt und onecompiler.com.
