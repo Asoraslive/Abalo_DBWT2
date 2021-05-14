@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+Route::delete('/shoppingcart/{shoppingcartid}/article/{articleId}', [ShoppingcartController::class, 'destroy']);
 Route::resource('articles', ArticleController::class);
 Route::resource('shoppingcart', ShoppingcartController::class);
 
-Route::delete('/shoppingcart/{shoppingcartid}/article/{articleId}', [ShoppingcartController::class, 'destroy']);
+

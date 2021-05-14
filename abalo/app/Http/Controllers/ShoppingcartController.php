@@ -20,23 +20,21 @@ class ShoppingcartController extends Controller
      */
     public function store(Request $request)
     {
-        $item = new AbShoppingcartItem();
-        $item->ab_shoppingcart_id = 1;
-        $item->ab_article_id = $request->articleid;
-        $item->save();
 
-        return response()->json($item);
+        $item = new AbShoppingcartItem();
+        $item->forceFill(['ab_shoppingcart_id' => 1,'ab_article_id'=>$request->articleid])->save();
+
+        return response()->json($item,201);
     }
 
     /**
      * Destroy-Action
      *
-     * @param Request $request
      * @param int $id
      *
      * @return JsonResponse
      */
-    public function destroy(Request $request, $shoppingcartid, $articleId)
+    public function destroy($shoppingcartid, $articleId)
     {
         AbShoppingcartItem::query()->where('ab_shoppingcart_id', $shoppingcartid)->where('ab_article_id', $articleId)->delete();
 
