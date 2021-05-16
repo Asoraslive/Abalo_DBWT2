@@ -19,7 +19,7 @@ class ArticleController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
-        $articles = ab_article::query()->where('ab_name','ILIKE',"%".$search."%")->pluck('ab_name');
+        $articles = ab_article::query()->where('ab_name','ILIKE',"%".$search."%")->get();
 
         return response()->json($articles);
     }
@@ -34,19 +34,14 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+       // dd($request);
+        $id = DB::table('ab_users')->where('ab_name', "seller")->pluck('id')->first(); //$creatorId->id;
+        $idInc = DB::table('ab_articles')->max('id') + 1;
         $article = new ab_article;
-        $article->id = (int)DB::table('ab_articles')->max('id') + 1;
-        $article->ab_name = $request->articleName;
-        $article->ab_price = $request->articlePrice;
-        $article->ab_description = $request->articleDescription;
-        $article->ab_creator_id = 8;
+        $article->forceFill(['id'=> $idInc,'ab_name'=> $request->articleName,'ab_price'=>$request->articlePrice,'ab_description' => $request->articleDescription,'ab_creator_id'=>$id])->save();
 
-        if($request->articlePrice > 0 && !empty($request->articleName)) {
-            $article->save();
+        return response()->json($article,201);
 
-            return response()->json($article->id);
-        }
-        return response()->json("error");
     }
 
     /**

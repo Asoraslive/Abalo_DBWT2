@@ -110,8 +110,17 @@
         }
         function sendData(name, price, desc, seller){
             if(validation()) {
+           //      let xhr = new XMLHttpRequest();
+           //      xhr.open('POST', 'http://127.0.0.1:8000/api/articles/',true);
+           //      xhr.setRequestHeader("X-CSRF-TOKEN",
+           //         document.getElementById("csrf-token").getAttribute('content')
+           //      );
+           // //     let data = JSON.stringify({articleName: name, articlePrice: price, articleDescription: desc, articleSeller: seller});
+           //    //  console.log(data);
+           //      xhr.send("articleName="+name+"&articlePrice="+price+"&articleDescription=" +desc+"&articleSeller="+seller);
+
                 let xhr = new XMLHttpRequest();
-                xhr.open('POST', '/newarticle');
+                xhr.open('POST', 'http://127.0.0.1:8000/api/articles/');
                 xhr.setRequestHeader("X-CSRF-TOKEN",
                     document.getElementById("csrf-token").getAttribute('content')
                 );
@@ -123,24 +132,30 @@
                 formData.append("articleSeller", seller);
                 xhr.send(formData);
 
+                //felder leeren
                 document.getElementById('articleName').value = "";
                 document.getElementById('articlePrice').value = "";
                 document.getElementById('articleDescription').value = "";
                 document.getElementById('articleSeller').value = "";
 
                 let p = document.createElement('p');
-                p.innerHTML = "Produkt wurde hinzugefügt!";
-                document.getElementById('formBody').appendChild(p);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4){
+                        if (xhr.status === 201)
+                        {
+                            p.innerHTML = "Produkt wurde hinzugefügt!";
+                        }
+                        else
+                        {
+                            p.innerText= "Produkt hinzufügen fehlgeschlagen!"
+                        }
+                    }
+                    document.getElementById('formBody').appendChild(p);
+                }
+
+
             }
         }
-
-        //submit
-        /*function saveArticle(){
-            if (validation())
-            {
-                document.getElementById('articleForm').submit();
-            }
-        }*/
 
 
         //form validation

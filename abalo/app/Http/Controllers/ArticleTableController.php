@@ -22,7 +22,6 @@ class ArticleTableController extends Controller
     }
 
     public function store(Request $request){
-        //$creatorId = ab_user::query()->where('ab_name',$request->articleSeller)->firstOrFail();
         $article = new ab_article;
         $article->id = (int)DB::table('ab_articles')->max('id') + 1;
         $article->ab_name = $request->articleName;
