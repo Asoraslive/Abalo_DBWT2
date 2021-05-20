@@ -14,12 +14,12 @@
         var xhr = new XMLHttpRequest();
 
         xhr.onreadystatechange = function (){
-            if(xhr.readyState === 4){
+            if(xhr.readyState === 4 && xhr.status === 200){
                 text.innerText = JSON.parse(xhr.responseText)['message'];
             }
         }
 
-        xhr.open("GET", "../public/static/message.json");
+        xhr.open("GET", "/static/message.json");
         body[0].appendChild(text);
         xhr.send();
     }

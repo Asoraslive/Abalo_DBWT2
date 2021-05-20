@@ -40,7 +40,7 @@ class ArticleController extends Controller
         $article = new ab_article;
         $article->forceFill(['id'=> $idInc,'ab_name'=> $request->articleName,'ab_price'=>$request->articlePrice,'ab_description' => $request->articleDescription,'ab_creator_id'=>$id])->save();
 
-        return response()->json($article,201);
+        return response()->json($article->id,201);
 
     }
 
@@ -52,7 +52,7 @@ class ArticleController extends Controller
      *
      * @return JsonResponse
      */
-    public function destroy(Request $request, $id)
+    public function destroy($id)
     {
         ab_article::destroy($id);
 

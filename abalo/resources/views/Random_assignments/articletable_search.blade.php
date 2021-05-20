@@ -2,7 +2,7 @@
 @section('title','Article Table')
 
 @section('content')
-    <form method="GET" action="{{route('articles.store')}}" class="d-flex justify-content-center">
+    <form method="GET" action="http://127.0.0.1:8000/api/articles" class="d-flex justify-content-center">
         <input id="search-text" name="search" class="form-control" type="search" placeholder="Suche nach Artikel" aria-label="Search" style="width: 50vw">
         <button class="btn btn-outline-primary" type="submit">Suchen</button>
 

@@ -7,7 +7,7 @@
 
         <div id="formBody" style="width: 90vw;margin: auto;"></div>
     </form>
-@endsection
+@endsectionw
 
 @section('more_script')
     <script type="text/javascript">
