@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ArticleSeeder::class,
             ArticleCategorySeeder::class,
+            Article_Has_ArticlecategorySeeder::class,
+            Ab_ShoppingkartSeeder::class,
         ]);
     }
 }

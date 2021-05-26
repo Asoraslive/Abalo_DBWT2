@@ -2654,11 +2654,13 @@ sequence|table|32887|32889|1
     </sequence>
     <table id="54" parent="18" name="ab_article_ab_articlecategory">
       <ObjectId>32860</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>dev</Owner>
       <StateNumber>2193</StateNumber>
     </table>
     <table id="55" parent="18" name="ab_articlecategories">
       <ObjectId>32851</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>dev</Owner>
       <StateNumber>2193</StateNumber>
     </table>
@@ -2676,6 +2678,7 @@ sequence|table|32887|32889|1
     </table>
     <table id="58" parent="18" name="ab_shoppingcart_item">
       <ObjectId>32889</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>dev</Owner>
       <StateNumber>2191</StateNumber>
     </table>

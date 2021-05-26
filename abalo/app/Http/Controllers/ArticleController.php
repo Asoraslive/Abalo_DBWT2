@@ -18,10 +18,24 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        $search = $request->input('search');
-        $articles = ab_article::query()->where('ab_name','ILIKE',"%".$search."%")->get();
+        $columns = ['ab_name','ab_price','ab_description','ab_creator_id'];
+        $length = $request->input('length');
+        $column = $request->input('column');
+        $dir = $request->input('dir');
+        $searchValue = $request->input('search');
 
-        return response()->json($articles);
+        $query = ab_article::query()->select('id','ab_name','ab_price','ab_description','ab_creator_id')->orderBy($columns[$column],$dir);
+
+        //search
+        if ($searchValue) {
+            $query->where(function($query) use ($searchValue) {
+                $query->where('ab_name', 'ILike', '%' . $searchValue . '%')
+            ->orWhere('ab_price','Like','%'.$searchValue.'%');});
+        }
+
+        $articles = $query->paginate($length);
+        //ausgabe zum ajax call
+        return response()->json(['data'=>$articles,'draw'=>$request->input('draw')],202);
     }
 
 
