@@ -11,6 +11,14 @@ use Illuminate\Support\Facades\DB;
 
 class ShoppingcartController extends Controller
 {
+    public function index(){
+        return response()->json(['itemId'=>AbShoppingcartItem::all()]);
+    }
+
+    public function show($id){
+        return response()->json(['shopItem' => ab_article::query()->where('id',$id)->get()],202);
+    }
+
     /**
      * Store-Action
      *
@@ -24,8 +32,11 @@ class ShoppingcartController extends Controller
         $item = new AbShoppingcartItem();
         $item->forceFill(['ab_shoppingcart_id' => 1,'ab_article_id'=>$request->articleid])->save();
 
-        return response()->json($item,201);
+        return response()->json([],201);
     }
+
+
+
 
     /**
      * Destroy-Action
@@ -34,10 +45,11 @@ class ShoppingcartController extends Controller
      *
      * @return JsonResponse
      */
-    public function destroy($shoppingcartid, $articleId)
+    public function destroy($articleId)
     {
-        AbShoppingcartItem::query()->where('ab_shoppingcart_id', $shoppingcartid)->where('ab_article_id', $articleId)->delete();
+        //AbShoppingcartItem::query()->where('ab_shoppingcart_id', $shoppingcartid)->where('ab_article_id', $articleId)->delete();
+        AbShoppingcartItem::query()->where('ab_article_id', $articleId)->delete();
 
-        return response()->json([], 204);
+        return response()->json([],204);
     }
 }

@@ -15,4 +15,7 @@ class AbShoppingcartItem extends Model
     {
         return $this->belongsTo(AbShoppingcart::class ,'ab_creator_id');
     }
+    public function original(){
+        return $this->belongsTo(ab_article::class,'ab_article_id','id');
+    }
 }

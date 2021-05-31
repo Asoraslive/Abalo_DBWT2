@@ -44,7 +44,6 @@ use Illuminate\Support\Facades\Route;
 //Route::post('/newarticle',[ArticleTableController::class,'store'])->name('articles.store');
 //
 
-Route::get('/',function () {
+Route::get('/newsite',function () {
     return view("Vue_Version/Vue_template/table");
 });
-Route::get('article',[ArticleController::class,'index']);

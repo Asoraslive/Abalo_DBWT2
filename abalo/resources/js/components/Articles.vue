@@ -1,18 +1,20 @@
 <template>
     <div class="articles">
 
-        <div class="input-group mb-3" style="width: 50vw;margin-right: auto;margin-left: auto;margin-top: 10px;margin-bottom: 10px!important;">
+        <div class="input-group mb-3"
+             style="width: 50vw;margin-right: auto;margin-left: auto;margin-top: 10px;margin-bottom: 10px!important;">
             <input type="text" class="form-control " v-model="tableData.search" placeholder="Suche"
                    @input="conditionalSearch()">
             <select v-model="tableData.length" class="form-control col-2" @change="getArticles()">
                 <option value="5" selected="selected">5</option>
                 <option value="10">10</option>
-                <option value="20">20</option>
+                <option value="15">15</option>
             </select>
 
         </div>
 
-        <datatable :columns="columns" :sortKey="sortKey" :sortOrders="sortOrders" @sort="sortBy">
+        <datatable :columns="columns" :sortKey="sortKey" :sortOrders="sortOrders" @sort="sortBy"
+                   style="background: rgba(0,0,0,0.1)">
 
             <tbody>
             <tr v-for="article in articles" :key="article.id">
@@ -39,8 +41,13 @@ import Pagination from "./Pagination";
 
 export default {
     components: {datatable: Datatable, pagination: Pagination},
+    props:['searchKey',],
     created() {
         this.getArticles();
+        if (this.searchKey){
+            this.tableData.search = this.searchKey;
+            this.conditionalSearch(this.tableData.search);
+        }
     },
     data() {
         let sortOrders = {};
@@ -88,7 +95,7 @@ export default {
             this.pagination.from = data.from;
             this.pagination.to = data.to;
         },
-        getArticles(url = '/article') {
+        getArticles(url = 'http://127.0.0.1:8000/api/article') {
             this.tableData.draw++;
             axios.get(url, {params: this.tableData})
                 .then(response => {
@@ -113,7 +120,6 @@ export default {
             return array.findIndex(column => column[key] == value);
         },
         conditionalSearch() {
-            console.log(this.tableData.search.length);
             if (this.tableData.search.length > 2 || this.tableData.search == "") {
                 this.getArticles();
             }

@@ -18,24 +18,28 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        $columns = ['ab_name','ab_price','ab_description','ab_creator_id'];
+        //       $columns = ['ab_name', 'ab_price', 'ab_description', 'ab_creator_id'];
         $length = $request->input('length');
-        $column = $request->input('column');
-        $dir = $request->input('dir');
+//        $column = $request->input('column');
+//        $dir = $request->input('dir');
         $searchValue = $request->input('search');
 
-        $query = ab_article::query()->select('id','ab_name','ab_price','ab_description','ab_creator_id')->orderBy($columns[$column],$dir);
+        //$query = ab_article::query()->select('id', 'ab_name', 'ab_price', 'ab_description', 'ab_creator_id')->orderBy($columns[$column], $dir);
+        $query = ab_article::query()->select('id', 'ab_name', 'ab_price', 'ab_description', 'ab_creator_id');
 
         //search
         if ($searchValue) {
-            $query->where(function($query) use ($searchValue) {
+            $query->where(function ($query) use ($searchValue) {
                 $query->where('ab_name', 'ILike', '%' . $searchValue . '%')
-            ->orWhere('ab_price','Like','%'.$searchValue.'%');});
+                    ->orWhere('ab_price', 'Like', '%' . $searchValue . '%');
+            });
         }
 
-        $articles = $query->paginate($length);
+        //$articles = $query->paginate($length);
+        $articles = $query->get();
+
         //ausgabe zum ajax call
-        return response()->json(['data'=>$articles,'draw'=>$request->input('draw')],202);
+        return response()->json(['data' => $articles, 'draw' => $request->input('draw')], 202);
     }
 
 
@@ -48,13 +52,13 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-       // dd($request);
+        // dd($request);
         $id = DB::table('ab_users')->where('ab_name', "seller")->pluck('id')->first(); //$creatorId->id;
         $idInc = DB::table('ab_articles')->max('id') + 1;
         $article = new ab_article;
-        $article->forceFill(['id'=> $idInc,'ab_name'=> $request->articleName,'ab_price'=>$request->articlePrice,'ab_description' => $request->articleDescription,'ab_creator_id'=>$id])->save();
+        $article->forceFill(['id' => $idInc, 'ab_name' => $request->articleName, 'ab_price' => $request->articlePrice, 'ab_description' => $request->articleDescription, 'ab_creator_id' => $id])->save();
 
-        return response()->json($article->id,201);
+        return response()->json($article->id, 201);
 
     }
 
@@ -71,5 +75,14 @@ class ArticleController extends Controller
         ab_article::destroy($id);
 
         return response()->json([], 204);
+    }
+
+    //custom Funciton
+    public function lastArticle()
+    {
+        //get last article
+        $last = ab_article::orderBy('ab_createdate', 'desc')->limit(6)->get();
+        //respond list
+        return response()->json(['articles' => $last], 202);
     }
 }

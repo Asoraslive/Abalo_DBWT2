@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-
+Route::get('article',[ArticleController::class,'index']);
+Route::get('lastarticles', [ArticleController::class,'lastArticle']);
+Route::post('createArticle', [ArticleController::class,'store']);
+Route::resource('shoppingkart',ShoppingcartController::class);
 
