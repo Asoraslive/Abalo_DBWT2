@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="hello">
+        {{ msg }} <br>
+        {{ msg | UpperCase }} <br>
+        {{ msg | LowerCase }}
+    </div>
+
+
+
+<script type="text/javascript">
+
+    Vue.filter('UpperCase', function (value){
+    if (!value) {
+        return '';
+    }
+    value = value.toString();
+    return value.toUpperCase()
+    })
+
+    Vue.filter('LowerCase', function (value){
+        if (!value) {
+            return '';
+        }
+        value = value.toString();
+        return value.toLowerCase();
+    })
+
+    let message = 'Hello World';
+    new Vue({
+        el: '#hello',
+        data: {
+            msg: message
+        },
+        created() {
+            console.log('Vue instance created: ',
+                this.header);
+        }
+    });
+
+</script>
+</body>
+</html>

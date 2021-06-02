@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>input</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+<div id="app">
+    {{inputdata}}<br>
+    <input type="text" v-model="inputdata">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            inputdata: null
+        }
+    });
+</script>
+</body>
+</html>

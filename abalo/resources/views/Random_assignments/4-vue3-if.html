@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>if</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+<div id="app" v-if="serverdown">
+    {{header}}
+</div>
+
+<script type="text/javascript">
+var app = new Vue({
+    el: '#app',
+    data: {
+        header: 'Der Webserver ist zurzeit nicht erreichbar',
+        serverdown: true
+    }
+})
+</script>
+
+</body>
+</html>

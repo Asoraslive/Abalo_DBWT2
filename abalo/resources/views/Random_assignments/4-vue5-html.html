@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>html</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+<div id="app" v-html="msg"> </div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            msg: "<b>Vielen Dank</b>, für Ihren Einkauf bei <i>Abalo</i>"
+        }
+    })
+</script>
+</body>
+</html>
