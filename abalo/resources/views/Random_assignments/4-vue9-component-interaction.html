@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>interaction</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="app">
+    <parent-component></parent-component>
+</div>
+</body>
+<script>
+    Vue.component('parent-component', {
+        template: '<child-component @ParentAufruf="Parent"></child-component>',
+        methods: {
+            Parent(data) {
+                console.log("Wurde aufgerufen von: " + data)
+            }
+        }
+    });
+
+    Vue.component('child-component', {
+        template: '<span @click="Child">Ich bin Kind</span>',
+        methods: {
+            Child() {
+                this.$emit('ParentAufruf', 'Kind')
+            }
+        }
+    });
+
+    new Vue({
+        el: '#app'
+    })
+</script>
+
+</html>

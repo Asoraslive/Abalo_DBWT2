@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagination</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <pagination></pagination>
+    </div>
+</body>
+
+<script>
+    Vue.component('pagination',{
+        data(){
+            return{
+                page: 1
+            }
+        },
+        template: '<span> <a @click="dec()"><</a> Seitenzahl {{page}} <a @click="inc()">></a></span>',
+        methods: {
+            dec(){
+                if(this.page > 1)
+                    this.page--;
+            },
+            inc(){
+                if(this.page < 10)
+                    this.page++;
+            }
+        }
+    })
+
+    new Vue({
+        el: '#app'
+    })
+</script>
+</html>
