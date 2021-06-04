@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Component</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="app">
+    <button-click-counters></button-click-counters>
+</div>
+
+<script>
+    Vue.component('button-click-counters', {
+        data: function () {
+            return {
+                count: 1
+            }
+        },
+        template:
+            '<div><button v-on:click="count++">Count: {{ count }} (Press to Increment).</button>' +
+            '<br> <br>'+
+            '<button v-on:click="count--">Press to decrement: {{count}}.</button></div>'
+    });
+    new Vue({
+        el: '#app'
+    });
+</script>
+</body>
+</html>
