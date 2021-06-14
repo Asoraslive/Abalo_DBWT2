@@ -21,16 +21,11 @@
       <path value="$PROJECT_DIR$/abalo/vendor/league/commonmark" />
       <path value="$PROJECT_DIR$/abalo/vendor/league/flysystem" />
       <path value="$PROJECT_DIR$/abalo/vendor/league/mime-type-detection" />
-      <path value="$PROJECT_DIR$/abalo/vendor/nesbot/carbon" />
       <path value="$PROJECT_DIR$/abalo/vendor/ramsey/collection" />
       <path value="$PROJECT_DIR$/abalo/vendor/ramsey/uuid" />
       <path value="$PROJECT_DIR$/abalo/vendor/vlucas/phpdotenv" />
-      <path value="$PROJECT_DIR$/abalo/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/abalo/vendor/egulias/email-validator" />
-      <path value="$PROJECT_DIR$/abalo/vendor/laravel/framework" />
-      <path value="$PROJECT_DIR$/abalo/vendor/laravel/sail" />
       <path value="$PROJECT_DIR$/abalo/vendor/laravel/tinker" />
-      <path value="$PROJECT_DIR$/abalo/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/abalo/vendor/mockery/mockery" />
       <path value="$PROJECT_DIR$/abalo/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/abalo/vendor/myclabs/deep-copy" />
@@ -51,7 +46,6 @@
       <path value="$PROJECT_DIR$/abalo/vendor/symfony/event-dispatcher" />
       <path value="$PROJECT_DIR$/abalo/vendor/symfony/event-dispatcher-contracts" />
       <path value="$PROJECT_DIR$/abalo/vendor/symfony/finder" />
-      <path value="$PROJECT_DIR$/abalo/vendor/symfony/http-client-contracts" />
       <path value="$PROJECT_DIR$/abalo/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/abalo/vendor/symfony/http-kernel" />
       <path value="$PROJECT_DIR$/abalo/vendor/symfony/mime" />
@@ -69,7 +63,6 @@
       <path value="$PROJECT_DIR$/abalo/vendor/symfony/service-contracts" />
       <path value="$PROJECT_DIR$/abalo/vendor/symfony/string" />
       <path value="$PROJECT_DIR$/abalo/vendor/symfony/translation" />
-      <path value="$PROJECT_DIR$/abalo/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/abalo/vendor/symfony/var-dumper" />
       <path value="$PROJECT_DIR$/abalo/vendor/theseer/tokenizer" />
       <path value="$PROJECT_DIR$/abalo/vendor/doctrine/inflector" />
@@ -89,7 +82,6 @@
       <path value="$PROJECT_DIR$/abalo/vendor/sebastian/diff" />
       <path value="$PROJECT_DIR$/abalo/vendor/sebastian/environment" />
       <path value="$PROJECT_DIR$/abalo/vendor/sebastian/exporter" />
-      <path value="$PROJECT_DIR$/abalo/vendor/sebastian/global-state" />
       <path value="$PROJECT_DIR$/abalo/vendor/sebastian/lines-of-code" />
       <path value="$PROJECT_DIR$/abalo/vendor/sebastian/object-enumerator" />
       <path value="$PROJECT_DIR$/abalo/vendor/sebastian/object-reflector" />
@@ -101,7 +93,6 @@
       <path value="$PROJECT_DIR$/abalo/vendor/guzzlehttp/guzzle" />
       <path value="$PROJECT_DIR$/abalo/vendor/guzzlehttp/promises" />
       <path value="$PROJECT_DIR$/abalo/vendor/guzzlehttp/psr7" />
-      <path value="$PROJECT_DIR$/abalo/vendor/nunomaduro/collision" />
       <path value="$PROJECT_DIR$/abalo/vendor/jeroenzwart/laravel-csv-seeder" />
       <path value="$PROJECT_DIR$/abalo/vendor/swiftmailer/swiftmailer" />
       <path value="$PROJECT_DIR$/abalo/vendor/tijsverkoyen/css-to-inline-styles" />
@@ -110,9 +101,18 @@
       <path value="$PROJECT_DIR$/abalo/vendor/phpdocumentor/reflection-docblock" />
       <path value="$PROJECT_DIR$/abalo/vendor/phpdocumentor/type-resolver" />
       <path value="$PROJECT_DIR$/abalo/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/abalo/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/abalo/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/abalo/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/abalo/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/abalo/vendor/laravel/sail" />
+      <path value="$PROJECT_DIR$/abalo/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/abalo/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/abalo/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/abalo/vendor/bloatless/php-websocket" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />
   <component name="PhpUnit">
     <phpunit_settings>
       <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/abalo/vendor/autoload.php" />

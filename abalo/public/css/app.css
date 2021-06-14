@@ -14350,4 +14350,23 @@ input[type=color].form-control:disabled {
   vertical-align: text-bottom;
 }
 
+body {
+  height: 125vh;
+  width: 100vw;
+  background: linear-gradient(0deg, rgba(166, 213, 220, 0.62), rgba(89, 201, 253, 0.6));
+  background-repeat: no-repeat;
+}
+
+body a {
+  cursor: pointer;
+}
+
+.logo__image {
+  background: rgba(0, 0, 0, 0.1);
+  margin: 10px auto;
+  display: block;
+  width: auto;
+  height: 150px;
+}
+
 

@@ -9,4 +9,32 @@
 // Bootstrap Vue
 @import 'node_modules/bootstrap-vue/src/index.scss';
 
+//custom
+//nesting
+body {
+    height: 125vh;
+    width: 100vw;
+    background: -webkit-linear-gradient(0deg, $abalo_gradient, $abalo_mint);
+    background: -moz-linear-gradient(0deg, $abalo_gradient, $abalo_mint);
+    background: -ms-linear-gradient(0deg, $abalo_gradient, $abalo_mint);
+    background: -o-linear-gradient(0deg, $abalo_gradient, $abalo_mint);
+    background: linear-gradient(0deg, $abalo_gradient, $abalo_mint);
+    background-repeat: no-repeat;
+
+    a {
+        cursor: pointer;
+    }
+}
+
+
+//variable
+.logo {
+    &__image {
+        background: $smooth-bg;
+        margin: 10px auto;
+        display: block;
+        width: auto;
+        height: 150px;
+    }
+}
 

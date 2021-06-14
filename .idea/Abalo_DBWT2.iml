@@ -27,16 +27,11 @@
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/league/commonmark" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/league/flysystem" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/league/mime-type-detection" />
-      <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/nesbot/carbon" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/ramsey/collection" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/ramsey/uuid" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/vlucas/phpdotenv" />
-      <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/dnoegel/php-xdg-base-dir" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/egulias/email-validator" />
-      <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/laravel/framework" />
-      <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/laravel/sail" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/laravel/tinker" />
-      <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/laravel/ui" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/myclabs/deep-copy" />
@@ -57,7 +52,6 @@
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/symfony/event-dispatcher" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/symfony/event-dispatcher-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/symfony/finder" />
-      <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/symfony/http-client-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/symfony/http-foundation" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/symfony/http-kernel" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/symfony/mime" />
@@ -75,7 +69,6 @@
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/symfony/service-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/symfony/string" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/symfony/translation" />
-      <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/symfony/translation-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/symfony/var-dumper" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/theseer/tokenizer" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/doctrine/inflector" />
@@ -95,7 +88,6 @@
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/sebastian/diff" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/sebastian/environment" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/sebastian/exporter" />
-      <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/sebastian/global-state" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/sebastian/lines-of-code" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/sebastian/object-enumerator" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/sebastian/object-reflector" />
@@ -107,7 +99,6 @@
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/guzzlehttp/guzzle" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/guzzlehttp/promises" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/guzzlehttp/psr7" />
-      <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/nunomaduro/collision" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/jeroenzwart/laravel-csv-seeder" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/tijsverkoyen/css-to-inline-styles" />
@@ -116,6 +107,15 @@
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/phpdocumentor/reflection-docblock" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/phpdocumentor/type-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/graham-campbell/result-type" />
+      <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/symfony/http-client-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/symfony/translation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/nesbot/carbon" />
+      <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/laravel/framework" />
+      <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/laravel/sail" />
+      <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/nunomaduro/collision" />
+      <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/laravel/ui" />
+      <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/sebastian/global-state" />
+      <excludeFolder url="file://$MODULE_DIR$/abalo/vendor/bloatless/php-websocket" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

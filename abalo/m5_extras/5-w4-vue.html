@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+
+<div id="app">
+    <p>Text:</p>
+    <input type="text" id="sendText">
+    <button id="sendBtn">Send</button>
+    <br>
+    <p>{{msg}}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        mounted() {
+            console.log(this.maintanance);
+            let socket = new WebSocket('ws://127.0.0.1:8080/demo');
+            socket.onmessage=(msg)=>{
+                let response = JSON.parse(msg.data);
+                this.msg = response.data;
+            }
+        },
+        data(){
+            return{
+                msg : "yikes",
+            }
+        }
+    });
+
+    //connect to Websocket
+    let sockets = new WebSocket('ws://127.0.0.1:8080/demo')
+    const sendBtn = document.getElementById('sendBtn');
+    sendBtn.addEventListener("click", () => {
+        let msg = {
+            action: 'echo',
+            data: document.getElementById('sendText').value,
+        }
+        sockets.send(JSON.stringify(msg));
+    })
+</script>
+</body>
+</html>

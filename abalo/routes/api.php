@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ShoppingcartController;
+use Bloatless\WebSocket\web_client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,5 @@ Route::get('article',[ArticleController::class,'index']);
 Route::get('lastarticles', [ArticleController::class,'lastArticle']);
 Route::post('createArticle', [ArticleController::class,'store']);
 Route::resource('shoppingkart',ShoppingcartController::class);
-
+Route::post('articles/{id}/sold',[ArticleController::class,'sold']);
+Route::post('discountItem',[ArticleController::class,'discount']);

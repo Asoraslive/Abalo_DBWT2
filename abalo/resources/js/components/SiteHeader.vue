@@ -1,12 +1,12 @@
 <template>
     <div>
         <!--        Logo-->
-        <b-container class="bv-example-row">
+        <b-container class="logo">
             <b-row align-v="center">
-                <b-col></b-col>
-                <b-col><img :src="'img/abalo_logo.png'" class="rounded border border-secondary" alt="" style="background: rgba(0,0,0,0.1);
-                 background-color: rgba(128, 128, 128, 0.37);margin:10px auto; display: block" width="auto"
-                            height="150"></b-col>
+                <b-col>
+                </b-col>
+                <b-col><img :src="'img/abalo_logo.png'" class="rounded border border-secondary logo__image" alt="">
+                </b-col>
                 <b-col>
                     <b-button v-b-toggle.sidebar-1>
                         Warenkorb
@@ -84,7 +84,7 @@ export default {
                 ],
         };
         return {
-            isLoading : true,
+            isLoading: true,
             menu: menu,
             shopItems: [],
         };
@@ -128,7 +128,7 @@ export default {
                 .catch(errors => {
                     console.log(errors);
                 })
-        }
+        },
     }
 }
 </script>

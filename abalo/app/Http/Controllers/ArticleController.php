@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
+
     /**
      * Index function for general listing.
      *
@@ -84,5 +85,29 @@ class ArticleController extends Controller
         $last = ab_article::orderBy('ab_createdate', 'desc')->limit(6)->get();
         //respond list
         return response()->json(['articles' => $last], 202);
+    }
+
+    public function sold($id)
+    {
+
+        $client = new \Bloatless\WebSocket\Client;
+        $client->connect('127.0.0.1', 8080, '/custom', 'foo.lh');
+        $client->sendData(json_encode([
+            'action' => 'sold',
+            'data' => ab_article::query()->where('id', $id)->pluck('ab_name')->first(),
+        ]));
+        return response()->json([], 202);
+    }
+
+    public function discount(Request $request)
+    {
+        $_articleId = $request->input('articleid');
+        $client = new \Bloatless\WebSocket\Client;
+        $client->connect('127.0.0.1', 8080, '/custom', 'foo.lh');
+        $client->sendData(json_encode([
+            'action' => 'discount',
+            'data' => ab_article::query()->where('id', $_articleId)->pluck('ab_name')->first(),
+        ]));
+        return response()->json([], 202);
     }
 }

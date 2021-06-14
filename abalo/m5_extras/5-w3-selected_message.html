@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>Text:</p>
+<input type="text" id="msg">
+<button id="send">Send</button>
+<br>
+<p id="fill"></p>
+<script>
+    const fillText = document.getElementById('fill');
+    const sendBtn = document.getElementById('send');
+
+    //connect to Websocket
+    let socket = new WebSocket('ws://127.0.0.1:8080/demo')
+
+    sendBtn.addEventListener("click", () => {
+        let msg = {
+            action: 'echo',
+            data: document.getElementById('msg').value+";"+Math.floor((Math.random() * 10) + 1),
+        }
+        socket.send(JSON.stringify(msg));
+    })
+
+    socket.onmessage = (msg) => {
+        let response = JSON.parse(msg.data);
+        let rdata = response.data.split(';')[1];
+        if (parseInt(rdata) <= 3){
+            console.log(response.data);
+        }
+        else {
+            console.log("Action: " + response.action);
+            console.log("Wrong draw got: " +rdata+", expected 3");
+        }
+    }
+
+</script>
+</body>
+</html>

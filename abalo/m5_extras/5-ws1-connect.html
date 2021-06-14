@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+let socket= new WebSocket("ws://127.0.0.1:8080/status");
+socket.onopen = (event) => {
+    console.log('Connection Success');
+};
+</script>
+</body>
+</html>

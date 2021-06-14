@@ -10,7 +10,6 @@
                 <option value="10">10</option>
                 <option value="13">13</option>
             </select>
-
         </div>
 
 
@@ -19,13 +18,18 @@
         <b-table :items="articles" :fields="fields" :per-page="perPage" :current-page="currentPage" responsive hover>
             <template #cell(hinzufügen)="data">
                 <b-button @click="addToShop(data.item.id)">
-<!--                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"-->
-<!--                         class="bi bi-plus-circle" viewBox="0 0 16 16">-->
-<!--                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-<!--                        <path-->
-<!--                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>-->
-<!--                    </svg>-->
+                    <!--                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"-->
+                    <!--                         class="bi bi-plus-circle" viewBox="0 0 16 16">-->
+                    <!--                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                    <!--                        <path-->
+                    <!--                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>-->
+                    <!--                    </svg>-->
                     Hinzufügen
+                </b-button>
+            </template>
+            <template #cell(Angebot)="data">
+                <b-button @click="discountItem(data.item.id)">
+                    Angebot schalten!
                 </b-button>
             </template>
         </b-table>
@@ -36,7 +40,6 @@
             :per-page="perPage"
             align="center"
         ></b-pagination>
-
     </div>
 </template>
 
@@ -44,6 +47,7 @@
 
 export default {
     props: ['searchKey',],
+
     created() {
         this.getArticles();
         if (this.searchKey) {
@@ -53,6 +57,9 @@ export default {
     },
     data() {
         return {
+            discountName: "",
+            dismissSecs: 5,
+            dismissCountDown: 0,
             perPage: 5,
             currentPage: 1,
             articles: [],
@@ -82,10 +89,23 @@ export default {
                     sortable: true
                 },
                 'Hinzufügen',
-
+                'Angebot',
 
             ],
         }
+    },
+    mounted() {
+        let socket = new WebSocket('ws://127.0.0.1:8080/custom');
+        socket.onmessage = (msg) => {
+
+            let response = JSON.parse(msg.data);
+            if (response.action == 'discount') {
+                this.discountName = response.data;
+                this.DiscountStatus = true;
+            }
+        }
+
+
     },
     methods: {
         getArticles(url = 'http://127.0.0.1:8000/api/article') {
@@ -111,11 +131,16 @@ export default {
                 'articleid': id
             })
                 .then(response => {
-                    console.log(response);
                 })
                 .catch((errors => {
                     console.log(errors);
                 }))
+        },
+        discountItem(id) {
+            axios.post('http://127.0.0.1:8000/api/discountItem', {'articleid': id})
+                .then(() => {
+                    this.dismissCountDown = this.dismissSecs;
+                })
         }
 
     },
