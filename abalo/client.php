@@ -7,3 +7,8 @@ $client->sendData(json_encode([
     'action' => 'maintanance',
     'data' => 'start'
 ]));
+//$client->connect('127.0.0.1', 8080, '/custom', 'foo.lh');
+//$client->sendData(json_encode([
+//    'action' => 'maintanance',
+//    'data' => 'start'
+//]));

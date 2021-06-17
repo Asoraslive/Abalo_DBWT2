@@ -8,6 +8,8 @@
 
 
 use Bloatless\WebSocket\Application\customServerApp;
+use Bloatless\WebSocket\Application\DemoApplication;
+use Bloatless\WebSocket\Application\StatusApplication;
 
 include "vendor/autoload.php";
 // create new server instance
@@ -22,4 +24,6 @@ $server->setMaxRequestsPerMinute(2000);
 
 // Add your applications here:
 $server->registerApplication('custom',customServerApp::getInstance());
+$server->registerApplication('status',StatusApplication::getInstance());
+$server->registerApplication('demo',DemoApplication::getInstance());
 $server->run();

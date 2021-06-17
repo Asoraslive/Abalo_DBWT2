@@ -42,7 +42,7 @@
             </template>
         </b-modal>
 
-        <!--- Maintanance Modal------->
+        <!--- Maintanance Card------->
         <b-card v-if="isInMaintanance"
                 title="In Wartung"
                 class="bg-warning text-center"
